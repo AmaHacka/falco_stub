@@ -1,0 +1,106 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-deployment
+  labels:
+    app: ubuntu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ubuntu
+  template:
+    metadata:
+      labels:
+        app: ubuntu
+    spec:
+      containers:
+      - name: ubuntu
+        image: ubuntu
+        command: ["sleep", "123456"]
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: foo-app
+  labels:
+    app: foo
+spec:
+  containers:
+    - name: foo-app
+      image: 'kicbase/echo-server:1.0'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: foo-service
+spec:
+  selector:
+    app: foo
+  ports:
+    - port: 8080
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: bar-app
+  labels:
+    app: bar
+spec:
+  containers:
+    - name: bar-app
+      image: 'kicbase/echo-server:1.0'
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: bar-service
+spec:
+  selector:
+    app: bar
+  ports:
+    - port: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - pathType: Prefix
+            path: /foo
+            backend:
+              service:
+                name: foo-service
+                port:
+                  number: 8080
+          - pathType: Prefix
+            path: /bar
+            backend:
+              service:
+                name: bar-service
+                port:
+                  number: 8080
+---
