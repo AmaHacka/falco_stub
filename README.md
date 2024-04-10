@@ -41,3 +41,11 @@ helm repo update
 helm pull falcosecurity/falco --untar
 helm install falco -n falco -f custom-values.yaml -f custom-rules.yaml falcosecurity/falco --create-namespace
 ```
+
+Получить id чата, в котором находится бот:
+https://api.telegram.org/bot<YourBOTToken>/getUpdates
+
+Полезные материалы:
+
+1. Основные концепции k8s: https://kubernetes.io/docs/concepts/
+2. Стандарты безопасности в кластере: https://habr.com/ru/companies/vk/articles/730158/
