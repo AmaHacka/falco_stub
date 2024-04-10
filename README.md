@@ -39,7 +39,7 @@ minikube tunnel
 helm repo add falcosecurity https://falcosecurity.github.io/charts
 helm repo update
 helm pull falcosecurity/falco --untar
-helm install falco -n falco -f custom-values.yaml -f custom-rules.yaml falcosecurity/falco --create-namespace
+helm install falco -n falco -f custom-values.yaml falcosecurity/falco --create-namespace
 ```
 
 Получить id чата, в котором находится бот:
