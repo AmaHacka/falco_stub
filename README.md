@@ -12,7 +12,7 @@
 
 ## Подготовка окружения
 
-Успешное выполнение работы протестировано для MacOS и Debian-based Linux. 
+Успешное выполнение работы протестировано для MacOS (на процессоре Intel) и Debian-based Linux. 
 
 2. Установить Docker
 2. Установить [minikube](https://minikube.sigs.k8s.io/docs/start/), [kubectl](https://kubernetes.io/docs/tasks/tools/) и [helm](https://helm.sh/docs/intro/install/)
@@ -49,3 +49,4 @@ https://api.telegram.org/bot<YourBOTToken>/getUpdates
 
 1. Основные концепции k8s: https://kubernetes.io/docs/concepts/
 2. Стандарты безопасности в кластере: https://habr.com/ru/companies/vk/articles/730158/
+3. eBPF: https://habr.com/ru/companies/timeweb/articles/733058/
