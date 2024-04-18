@@ -25,7 +25,7 @@
 1. Установить [Falco](https://falco.org) в кластер minikube при помощи [helm-чарта](https://github.com/falcosecurity/charts/blob/master/README.md) (у меня заработало с драйвером modern_ebpf на mac)
 2. Создать телеграм-бота и добавить его в чат с уведомлениями о событиях безопасности
 3. Для Falco настроить алерты о событиях безопасности в telegram-бота при помощи falcosidekick (удобнее всего сделать это через values в helm-чарте)
-4. Изучить дефолтные [правила](https://github.com/falcosecurity/rules/blob/main/rules/falco_rules.yaml) для falco и быть готовыми их обсудить
+4. Изучить дефолтные [правила](https://github.com/falcosecurity/rules/blob/main/rules/falco_rules.yaml) для falco и быть готовыми их обсудить [правила в удобном формате](https://falco.org/docs/reference/rules/default-rules/)
 8. Для secured-ns подготовить демонстрацию срабатывания не менее 3х правил
 
 
