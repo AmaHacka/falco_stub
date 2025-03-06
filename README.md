@@ -26,7 +26,10 @@
 2. Создать телеграм-бота и добавить его в чат с уведомлениями о событиях безопасности
 3. Для Falco настроить алерты о событиях безопасности в telegram-бота при помощи falcosidekick (удобнее всего сделать это через values в helm-чарте)
 4. Изучить дефолтные [правила](https://github.com/falcosecurity/rules/blob/main/rules/falco_rules.yaml) для falco и быть готовыми их обсудить [правила в удобном формате](https://falco.org/docs/reference/rules/default-rules/)
-8. Для secured-ns подготовить демонстрацию срабатывания не менее 3х правил
+5. Создать 2 namespace: dev и prod
+6. Модифицировать дефолтные правила таким образом, чтобы срабатывания falko происходили **только для namespace prod** и игнорировалиcь для namespace dev
+8. Для prod подготовить демонстрацию срабатывания не менее 3х правил
+9. Создать собственное правило и подготовить его демонстрацию
 
 
 ## Полезные команды
@@ -50,3 +53,5 @@ https://api.telegram.org/bot<YourBOTToken>/getUpdates
 1. Основные концепции k8s: https://kubernetes.io/docs/concepts/
 2. Стандарты безопасности в кластере: https://habr.com/ru/companies/vk/articles/730158/
 3. eBPF: https://habr.com/ru/companies/timeweb/articles/733058/
+4. Основная концепция Falco: https://falco.org/docs/concepts/
+4. Описание полей в правилах Falco: https://falco.org/docs/reference/rules/supported-fields/
